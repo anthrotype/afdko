@@ -70,7 +70,7 @@ char sepch();	/* from WIN.C */
 
 #endif
 
-#ifdef _MSC_VER  /* defined by Microsoft Compiler */
+#if defined(_MSC_VER) || defined(__MINGW32__) /* if Microsoft Compiler or MinGW */
 #include <io.h>
 #include <fcntl.h>
 #include <sys\stat.h>
