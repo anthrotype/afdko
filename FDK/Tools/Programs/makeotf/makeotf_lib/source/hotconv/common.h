@@ -8,6 +8,8 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include <stdint.h>
+
 #include "hotconv.h"
 #include "dynarr.h"
 #include "txops.h"
@@ -56,7 +58,7 @@ typedef unsigned short uFWord;  /* Unsigned metric in font (em) units */
    OFFSET macros allow a simple declaration of both the byte offset field and a
    structure containing the data for that offset. (In header definitions the
    symbol |-> is used as a shorthand for "relative to".) */
-typedef unsigned long LOffset;
+typedef uint32_t LOffset;
 typedef unsigned short Offset;
 #define NULL_OFFSET 0
 #define DCL_OFFSET(type, name) \
@@ -115,7 +117,7 @@ typedef unsigned long Tag;
 
 /* -------------------------------- Typedefs ------------------------------- */
 
-typedef long Fixed;
+typedef int32_t Fixed;
 
 /* Glyph index */
 typedef unsigned short GID;
