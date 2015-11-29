@@ -5,7 +5,12 @@
  * Compact Font Format (CFF) parser. (Standalone library.)
  */
 
+#if defined(_MSC_VER) && (_MSC_VER < 1600)
+/* MS VC++ 9.0 (Visual Studio 2008) doesn't have "stdint.h" */
+typedef __int32 int32_t;
+#else
 #include <stdint.h>
+#endif  /* defined(_MSC_VER) && (_MSC_VER < 1600) */
 
 #include <string.h>
 #include <stdlib.h>

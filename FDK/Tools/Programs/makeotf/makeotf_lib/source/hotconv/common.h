@@ -8,7 +8,13 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#if defined(_MSC_VER) && (_MSC_VER < 1600)
+/* MS VC++ 9.0 (Visual Studio 2008) doesn't have "stdint.h" */
+typedef __int32 int32_t;
+typedef unsigned __int32 uint32_t;
+#else
 #include <stdint.h>
+#endif  /* defined(_MSC_VER) && (_MSC_VER < 1600) */
 
 #include "hotconv.h"
 #include "dynarr.h"
