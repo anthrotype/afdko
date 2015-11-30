@@ -460,7 +460,7 @@ static void readEncoding(parseCtx h) {
 	if (!h->encoding.std) {
 		int i;
 		char *p;
-		int length;
+		int length = 0;
 		long index[256]; /* Glyph name index, b31-8 buf. index, b7-0 length */
 
 		/* Initialize index */
@@ -476,7 +476,6 @@ static void readEncoding(parseCtx h) {
 
 		if (psMatchValue(h->ps, dupToken, "dup")) {
 			/* Parse encoding */
-			length = 0;
 			do {
 				int code = 0;   /* Suppress optimizer warning */
 				psToken codet;
@@ -1541,6 +1540,7 @@ void parseFont(tcCtx g, Font *font) {
 	h->component.chars.cnt = 0;
 	h->component.inorder = 0;
 	h->font->synthetic.oblique_term = 0.0;
+	h->subset.nGlyphs = 0;
 
 	if (g->flags & TC_NOOLDOPS) {
 		/* Initialize standard-encoded char index */
