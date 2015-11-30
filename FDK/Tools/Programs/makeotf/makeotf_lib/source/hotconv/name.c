@@ -63,6 +63,9 @@ static int enumNames(nameCtx h, int index,
                      unsigned short platspecId,
                      unsigned short languageId,
                      unsigned short nameId) {
+	if (index < 0) {
+		index = 0;
+	}
 	for (; index < h->tbl.record.cnt; index++) {
 		NameRecord *rec = &h->tbl.record.array[index];
 
